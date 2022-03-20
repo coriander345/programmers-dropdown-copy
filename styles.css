@@ -8,13 +8,15 @@ body {
   background-color: rgb(116, 111, 111);
 }
 .container {
-  width: 80%;
+  width: 60%;
+  min-width: 500px;
   min-height: 150px;
   height: 100px;
   border-radius: 8px;
   border: 2px solid #ebf1f5;
   background-color: #fbfbfd;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 20px;
@@ -25,22 +27,54 @@ body {
   height: 50px;
   width: 100%;
   padding: 3px;
+  text-transform: none;
   gap: 15px;
 }
 
 .option {
+  position: relative;
   border-radius: 8px;
-  border: 2px solid #ebf1f5;
+  padding: 0px 5px 0px 12px;
+  border: 2px solid #dfe4e7;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
   background-color: #ffffff;
 }
 .option:hover {
   background-color: #e9ecf3;
+  transition: 0.2s ease;
 }
 .option:active {
-  box-shadow: 0px 0px 3px 2px #dfe1eb;
+  box-shadow: 0px 0px 0px 2px #cfd0d6;
+  transition: 0.15s ease;
 }
+
 .option ul {
-  padding: 0px 15px;
+  display: block;
+  position: absolute;
+  flex-direction: column;
+  list-style: none;
+  padding: 0 5px;
+  gap: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 2px solid #dfe4e7;
+  width: 100%;
+  z-index: 5;
+  top: 15px;
+  left: -5px;
+}
+.dropdown-button {
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 3px 0px 0px 8px;
+  width: 15px;
+  font-size: 30px;
+  transform: rotate(90deg);
+}
+[hidden] {
+  display: none !important;
 }
