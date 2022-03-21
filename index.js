@@ -1,5 +1,7 @@
 const uls = document.getElementsByTagName("ul")
 const options = document.getElementsByClassName("option")
+const buttons = document.getElementsByClassName("dropdown-button")
+const filters = document.getElementsByClassName("filters")
 
 const Levels=["Level1","Level2","Level3","Level4","Level5"]
 const isSolved=["푼 문제", "안 푼 문제"]
@@ -29,8 +31,9 @@ const ulLists = [Levels,isSolved,proLangs,companys,collections]
     const li = document.createElement("li")
    const input = document.createElement("input")
    input.type = "checkbox"
-   li.append(input)
-   li.innerText=item
+   input.checked=false
+   li.innerText="     "+item
+   li.prepend(input)
    uls[i].append(li)
   }
  })
@@ -43,13 +46,32 @@ const ulLists = [Levels,isSolved,proLangs,companys,collections]
 function handleDropdown(i){
   uls[i].hidden=!uls[i].hidden
   
-  console.log(i)
+}
+function hanldeCheckbox(e, li){
+  e.checked=!e.checked
+  if(e.checked){
+    const div = document.createElement("div")
+    console.log(li.innerText)
+    div.innerText=li.innerText
+    // console.log(filters.item(0).append(div))
+  }
 }
 
-
  /// addEventListener
- for(let i in options){
-   console.log(options[i])
-   options.item(i).addEventListener("click", ()=>handleDropdown(i))
+ for(let i in buttons){
+   buttons.item(i).addEventListener("click", ()=>handleDropdown(i))
+   
  }
- 
+ for(let i in uls){
+  // console.log(uls.item(i).childNodes)
+  const liList = uls.item(i).querySelectorAll("li")
+  
+  for(let el of liList){
+    const input= el.childNodes.item(0)
+    // console.log(liList.item(el).querySelector("input"))
+    input.addEventListener("click", ()=>hanldeCheckbox(input, el))
+    
+  }
+  
+  
+}
