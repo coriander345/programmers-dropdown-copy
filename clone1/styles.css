@@ -113,24 +113,59 @@ div#header button#todo-add-btn:active {
 }
 ul#todos-list {
   list-style: none;
-  background-color: turquoise;
   padding: 0;
 }
 
 ul#todos-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 3px;
+  padding: 12px;
+  border-radius: 5px;
   width: 100%;
   font: #fff;
+  background-color: rgb(58, 211, 196);
+  position: relative;
 }
 
-/* ul#todos-list li input {
+ul#todos-list li .checkbox {
   width: 15px;
+  height: 15px;
   margin: 0;
-} */
+  align-self: center;
+  cursor: pointer;
+}
 
 ul#todos-list li p {
-  margin: 0;
+  height: 35px;
+  margin: 0 0 0 15px;
+  flex: 3;
+  cursor: pointer;
 }
-#todos-list li > .editInputul {
-  width: 80px;
-  margin: 0;
+ul#todos-list li span {
+  cursor: pointer;
+}
+ul#todos-list li .remove:hover {
+  transform: scale(1.2);
+  transition: 0.2s ease;
+  color: #db3737;
+}
+ul#todos-list li .editInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  inset: 0;
+}
+ul#todos-list li .modi {
+  position: absolute;
+  z-index: 5;
+  left: auto;
+  color: rgb(58, 211, 196);
+  right: 10px;
+}
+ul#todos-list li .modi:hover {
+  transform: scale(1.5);
+  transition: 0.2s ease-in-out;
 }
